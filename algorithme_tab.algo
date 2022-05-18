@@ -1,0 +1,35 @@
+
+ALGORITHM sommeDistinctsHashtable
+VAR
+    set1 : ARRAY_OF INTEGER[] := [3,1,7,9]
+    set2: ARRAY_OF INTEGER[] := [2,4,1,9,3]
+    i,j = integer 
+    hashTab: HASH-TABLe <INTEGER,INTEGER>
+BEGIN
+// Remplissage du Hashtable
+ FOR i FROM 0 TO set1.length-1  DO
+ hashTab.insert(set1[i],1);
+ END_FOR
+ FOR j FROM 0 TO set2.length-1  DO
+ IF (hashTab.lookup(set2[j])=true) THEN
+ hashTab.insert(set2[j],2);
+ ELSE 
+ hashTab.insert(set2[j],1);    
+ END_IF 
+ END_FOR
+
+ALGORITHM tabhash
+VAR
+tab1 : ARRAY_OF integer[]
+tab2 : ARRAY_OF integer[]
+i,j,sum:integer;
+BEGIN
+
+FOR i FROM 0 to tab1.length-1 STEP 1 DO
+
+FOR j FROM 0 to tab2.length-1 STEP 1 DO
+if (tab1[i]<>tab2[j] and j=tab2.length-1) then
+sum=sum+tab1[i];
+endif;
+END_FOR;
+end;
